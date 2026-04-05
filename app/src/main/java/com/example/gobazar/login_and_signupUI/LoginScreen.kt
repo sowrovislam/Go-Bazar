@@ -53,7 +53,6 @@ fun LoginScreen(navController: NavController) {
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize()
                 .padding(24.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
@@ -115,9 +114,24 @@ fun LoginScreen(navController: NavController) {
                             singleLine = true,
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                             colors = OutlinedTextFieldDefaults.colors(
-                                focusedBorderColor = Color(0xFF6366F1),
-                                focusedLabelColor = Color(0xFF6366F1)
+
+                                // ✍️ Text color inside field
+                                focusedTextColor = Color.Black,
+                                unfocusedTextColor = Color.Gray,
+
+                                // 🏷 Label color
+                                focusedLabelColor = Color.Blue,
+                                unfocusedLabelColor = Color.Gray,
+
+                                // 🟦 Border color
+                                focusedBorderColor = Color.Blue,
+                                unfocusedBorderColor = Color.LightGray,
+
+                                // ✨ Cursor color
+                                cursorColor = Color.Blue
                             )
+
+
                         )
 
                         Spacer(modifier = Modifier.height(16.dp))
@@ -139,9 +153,23 @@ fun LoginScreen(navController: NavController) {
                                 }
                             },
                             colors = OutlinedTextFieldDefaults.colors(
-                                focusedBorderColor = Color(0xFF6366F1),
-                                focusedLabelColor = Color(0xFF6366F1)
+
+                                // ✍️ Text color inside field
+                                focusedTextColor = Color.Black,
+                                unfocusedTextColor = Color.Gray,
+
+                                // 🏷 Label color
+                                focusedLabelColor = Color.Blue,
+                                unfocusedLabelColor = Color.Gray,
+
+                                // 🟦 Border color
+                                focusedBorderColor = Color.Blue,
+                                unfocusedBorderColor = Color.LightGray,
+
+                                // ✨ Cursor color
+                                cursorColor = Color.Blue
                             )
+
                         )
 
                         Spacer(modifier = Modifier.height(8.dp))
@@ -174,6 +202,8 @@ fun LoginScreen(navController: NavController) {
             }
 
             // Bottom Section: Buttons + Admin Signup
+
+            Spacer(modifier = Modifier.height(90.dp))
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -211,7 +241,7 @@ fun LoginScreen(navController: NavController) {
                     // Admin Login Button
                     Button(
                         onClick = {
-                            if (email == "admin@gmail.com" && password == "admin123") {
+                            if (email == "admin1@gmail.com" && password == "admin123") {
                                 navController.navigate(Screen.HomeScreen.route)
                                 error = ""
                             } else {
