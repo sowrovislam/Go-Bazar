@@ -211,7 +211,7 @@ fun LoginScreen(navController: NavController) {
                     // Admin Login Button
                     Button(
                         onClick = {
-                            if (email == "admin@gmail.com" && password == "admin123") {
+                            if (email == "admin1@gmail.com" && password == "admin123") {
                                 navController.navigate(Screen.HomeScreen.route)
                                 error = ""
                             } else {
