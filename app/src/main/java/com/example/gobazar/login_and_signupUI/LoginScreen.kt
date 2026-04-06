@@ -182,24 +182,28 @@ fun LoginScreen(navController: NavController) {
                             )
                         }
 
-//                        Spacer(modifier = Modifier.height(8.dp))
-//
-//                        // Forgot Password
-//                        Row(
-//                            modifier = Modifier.fillMaxWidth(),
-//                            horizontalArrangement = Arrangement.End
-//                        ) {
-//                            TextButton(onClick = { /* TODO: Add forgot password logic */ }) {
-//                                Text(
-//                                    "Forgot Password?",
-//                                    color = Color(0xFF6366F1),
-//                                    fontWeight = FontWeight.Medium
-//                                )
-//                            }
-//                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        // Forgot Password
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            TextButton(onClick = {
+                                navController.navigate(Screen.ForgotPassScreen.route)
+                            }) {
+                                Text(
+                                    "Forgot Password?",
+                                    color = Color(0xFF6366F1),
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
+                        }
                     }
                 }
             }
+
+
 
             // Bottom Section: Buttons + Admin Signup
 

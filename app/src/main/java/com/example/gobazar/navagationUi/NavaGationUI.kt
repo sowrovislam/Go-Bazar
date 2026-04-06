@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.gobazar.login_and_signupUI.FastScreen
+import com.example.gobazar.login_and_signupUI.ForgotPassScreen
 import com.example.gobazar.login_and_signupUI.LoginScreen
 import com.example.gobazar.login_and_signupUI.SignupScreen
 import com.example.gobazar.main_ui.HomeScreen
@@ -34,8 +35,8 @@ fun NavaGationUI() {
             SignupScreen(navController)
         }
 
-        composable(Screen.ForgateScreen.route) {
-//            ForgateScreen(navController)
+        composable(Screen.ForgotPassScreen.route) {
+            ForgotPassScreen(navController)
         }
 
         composable(Screen.HomeScreen.route){
@@ -58,7 +59,7 @@ sealed class Screen(val route: String) {
 
     object SignUpScreen : Screen("SignUpScreen")
 
-    object ForgateScreen : Screen("ForgateScreen")
+    object ForgotPassScreen : Screen("ForgotPassScreen")
 
     object HomeScreen : Screen("HomeScreen")
 

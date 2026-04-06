@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,8 +30,16 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun FastScreen(navController: NavController) {
+    val gradientBackground = Brush.verticalGradient(
+        colors = listOf(
+            Color(0xFF4BE6F8),
+            Color(0xFF697BEE),
+            Color(0xFF8BC34A)
+        )
+    )
 
-    var startAnimation by remember { mutableStateOf(false) }
+
+        var startAnimation by remember { mutableStateOf(false) }
 
     // ✅ Scale Animation
     val scale by animateFloatAsState(
@@ -59,7 +69,7 @@ fun FastScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.background)),
+            .background(gradientBackground),
         contentAlignment = Alignment.Center
     ) {
 
@@ -73,6 +83,7 @@ fun FastScreen(navController: NavController) {
                 .alpha(alpha)   // ✅ animation
         )
     }
+
 }
 
 @Preview(showSystemUi = true)
