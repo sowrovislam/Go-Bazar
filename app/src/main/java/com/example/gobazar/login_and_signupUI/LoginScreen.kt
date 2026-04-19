@@ -1,5 +1,6 @@
 package com.example.gobazar.login_and_signupUI
 
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -16,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -25,19 +27,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.gobazar.R
+import com.example.gobazar.login_signup_retrofict.AuthViewModel
 import com.example.gobazar.navagationUi.Screen
 
 @Composable
-fun LoginScreen(navController: NavController) {
+fun LoginScreen(navController: NavController,viewModel: AuthViewModel) {
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf("") }
-
+    val context = LocalContext.current
     val gradientBackground = Brush.verticalGradient(
         colors = listOf(
             Color(0xFF4F46E5),
@@ -222,9 +226,15 @@ fun LoginScreen(navController: NavController) {
                     // User Login Button
                     Button(
                         onClick = {
+
+
+
+
+
                             if (email == "user@gmail.com" && password == "1234") {
                                 navController.navigate(Screen.HomeScreen.route)
                                 error = ""
+
                             } else {
                                 error = "Invalid User Login"
                             }
@@ -245,12 +255,21 @@ fun LoginScreen(navController: NavController) {
                     // Admin Login Button
                     Button(
                         onClick = {
-                            if (email == "admin1@gmail.com" && password == "admin123") {
+
+
+                            viewModel.login(
+                                email, password,
+                              context
+                            ){
+
                                 navController.navigate(Screen.HomeScreen.route)
-                                error = ""
-                            } else {
-                                error = "Invalid Admin Login"
+                                
                             }
+
+
+
+
+
                         },
                         modifier = Modifier
                             .weight(1f)
@@ -295,10 +314,10 @@ fun LoginScreen(navController: NavController) {
         }
     }
 }
-
-@Preview(showSystemUi = true)
-@Composable
-fun loginUI() {
-    val navController = rememberNavController()
-    LoginScreen(navController)
-}
+//
+//@Preview(showSystemUi = true)
+//@Composable
+//fun loginUI() {
+//    val navController = rememberNavController()
+//    LoginScreen(navController)
+//}

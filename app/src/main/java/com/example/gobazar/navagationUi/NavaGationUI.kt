@@ -1,6 +1,7 @@
 package com.example.gobazar.navagationUi
 
 
+import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -10,17 +11,23 @@ import com.example.gobazar.login_and_signupUI.FastScreen
 import com.example.gobazar.login_and_signupUI.ForgotPassScreen
 import com.example.gobazar.login_and_signupUI.LoginScreen
 import com.example.gobazar.login_and_signupUI.SignupScreen
+import com.example.gobazar.login_signup_retrofict.AuthViewModel
 import com.example.gobazar.main_ui.HomeScreen
 
 
 @Composable
-fun NavaGationUI() {
+fun NavaGationUI(context: Context) {
+    val pref = context.getSharedPreferences("USER_SESSION", Context.MODE_PRIVATE)
+    val isLoggedIn = pref.getBoolean("isLoggedIn", false)
+
+    val start = if (isLoggedIn) Screen.HomeScreen.route else Screen.LoginScreen.route
+
 
     val navController = rememberNavController()
-
+    val viewModel: AuthViewModel = viewModel()
     NavHost(
         navController = navController,
-        startDestination ="FastScreen"
+        startDestination =start
     ) {
 
         composable(Screen.FastScreen.route) {
@@ -28,14 +35,14 @@ fun NavaGationUI() {
         }
 
         composable(Screen.LoginScreen.route) {
-            LoginScreen(navController)
+            LoginScreen(navController,viewModel)
         }
 
         composable(Screen.SignUpScreen.route) {
-            SignupScreen(navController)
+            SignupScreen(navController,viewModel)
         }
 
-        composable(Screen.ForgotPassScreen.route) {
+        composable(Screen.ForgotPassScreen .route) {
             ForgotPassScreen(navController)
         }
 
