@@ -11,6 +11,8 @@ composeBom = "2024.09.00"
 navigationCompose = "2.9.7"
 retrofit_v="2.9.0"
 converter_v="2.9.0"
+okhttp="4.12.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -32,6 +34,8 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 androidx-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit_v" }
 
 androidx-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converter_v" }
+
+androidx-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 
 
 

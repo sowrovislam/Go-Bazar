@@ -62,4 +62,5 @@ dependencies {
 
     implementation(libs.androidx.retrofit)
     implementation(libs.androidx.converter.gson)
+    implementation(libs.androidx.okhttp)
 }

@@ -258,14 +258,12 @@ fun LoginScreen(navController: NavController,viewModel: AuthViewModel) {
 
 
                             viewModel.login(
-                                email, password,
-                              context
-                            ){
-
-                                navController.navigate(Screen.HomeScreen.route)
-                                
+                                email,
+                                password,
+                                context
+                            ) {
+                                navController.navigate(Screen.HomeScreen.route)   // ✅ success হলে যাবে
                             }
-
 
 
 

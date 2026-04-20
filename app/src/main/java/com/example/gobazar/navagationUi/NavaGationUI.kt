@@ -25,6 +25,8 @@ fun NavaGationUI(context: Context) {
 
     val navController = rememberNavController()
     val viewModel: AuthViewModel = viewModel()
+
+
     NavHost(
         navController = navController,
         startDestination =start
@@ -47,7 +49,7 @@ fun NavaGationUI(context: Context) {
         }
 
         composable(Screen.HomeScreen.route){
-            HomeScreen(navController)
+            HomeScreen(navController,viewModel)
         }
 
 
