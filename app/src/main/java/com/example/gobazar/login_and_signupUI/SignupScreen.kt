@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,6 +16,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
@@ -110,7 +112,26 @@ fun SignupScreen(
                             value = fullName,
                             onValueChange = { fullName = it },
                             label = { Text("Full Name") },
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
+                            ,
+                            colors = OutlinedTextFieldDefaults.colors(
+
+                                // ✍️ Text color inside field
+                                focusedTextColor = Color.Black,
+                                unfocusedTextColor = Color.Gray,
+
+                                // 🏷 Label color
+                                focusedLabelColor = Color.Blue,
+                                unfocusedLabelColor = Color.Gray,
+
+                                // 🟦 Border color
+                                focusedBorderColor = Color.Blue,
+                                unfocusedBorderColor = Color.LightGray,
+
+                                // ✨ Cursor color
+                                cursorColor = Color.Blue
+                            )
                         )
 
                         Spacer(modifier = Modifier.height(12.dp))
@@ -119,7 +140,26 @@ fun SignupScreen(
                             value = email,
                             onValueChange = { email = it },
                             label = { Text("Email") },
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+                            ,
+                            colors = OutlinedTextFieldDefaults.colors(
+
+                                // ✍️ Text color inside field
+                                focusedTextColor = Color.Black,
+                                unfocusedTextColor = Color.Gray,
+
+                                // 🏷 Label color
+                                focusedLabelColor = Color.Blue,
+                                unfocusedLabelColor = Color.Gray,
+
+                                // 🟦 Border color
+                                focusedBorderColor = Color.Blue,
+                                unfocusedBorderColor = Color.LightGray,
+
+                                // ✨ Cursor color
+                                cursorColor = Color.Blue
+                            )
                         )
 
                         Spacer(modifier = Modifier.height(12.dp))
@@ -131,7 +171,26 @@ fun SignupScreen(
                             visualTransformation =
                                 if (passwordVisible) VisualTransformation.None
                                 else PasswordVisualTransformation(),
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                            ,
+                            colors = OutlinedTextFieldDefaults.colors(
+
+                                // ✍️ Text color inside field
+                                focusedTextColor = Color.Black,
+                                unfocusedTextColor = Color.Gray,
+
+                                // 🏷 Label color
+                                focusedLabelColor = Color.Blue,
+                                unfocusedLabelColor = Color.Gray,
+
+                                // 🟦 Border color
+                                focusedBorderColor = Color.Blue,
+                                unfocusedBorderColor = Color.LightGray,
+
+                                // ✨ Cursor color
+                                cursorColor = Color.Blue
+                            )
                         )
 
                         Spacer(modifier = Modifier.height(12.dp))
@@ -143,7 +202,26 @@ fun SignupScreen(
                             visualTransformation =
                                 if (confirmPasswordVisible) VisualTransformation.None
                                 else PasswordVisualTransformation(),
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                            ,
+                            colors = OutlinedTextFieldDefaults.colors(
+
+                                // ✍️ Text color inside field
+                                focusedTextColor = Color.Black,
+                                unfocusedTextColor = Color.Gray,
+
+                                // 🏷 Label color
+                                focusedLabelColor = Color.Blue,
+                                unfocusedLabelColor = Color.Gray,
+
+                                // 🟦 Border color
+                                focusedBorderColor = Color.Blue,
+                                unfocusedBorderColor = Color.LightGray,
+
+                                // ✨ Cursor color
+                                cursorColor = Color.Blue
+                            )
                         )
 
                         Spacer(modifier = Modifier.height(10.dp))

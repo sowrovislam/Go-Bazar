@@ -13,6 +13,7 @@ import com.example.gobazar.login_and_signupUI.LoginScreen
 import com.example.gobazar.login_and_signupUI.SignupScreen
 import com.example.gobazar.login_signup_retrofict.AuthViewModel
 import com.example.gobazar.main_ui.HomeScreen
+import com.example.gobazar.main_ui.ProfileScreen
 
 
 @Composable
@@ -57,6 +58,10 @@ fun NavaGationUI(context: Context) {
 //            Add_List_Screen(navController)
         }
 
+        composable(Screen.ProfileScreen.route) {
+            ProfileScreen(navController)
+        }
+
     }
 }
 
@@ -71,6 +76,8 @@ sealed class Screen(val route: String) {
     object ForgotPassScreen : Screen("ForgotPassScreen")
 
     object HomeScreen : Screen("HomeScreen")
+
+    object ProfileScreen : Screen("ProfileScreen")
 
     object Add_List_Screen : Screen("Add_List_Screen")
 

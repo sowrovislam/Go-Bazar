@@ -28,10 +28,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewModelScope
+import androidx.lint.kotlin.metadata.Visibility
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.gobazar.R
 import com.example.gobazar.login_signup_retrofict.AuthViewModel
+import com.example.gobazar.login_signup_retrofict.userid.SessionManager
 import com.example.gobazar.navagationUi.Screen
 
 @Composable
@@ -42,6 +44,13 @@ fun LoginScreen(navController: NavController,viewModel: AuthViewModel) {
     var passwordVisible by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf("") }
     val context = LocalContext.current
+
+    val session = SessionManager(context)
+    val Status = session.getUserName()
+
+
+
+    
     val gradientBackground = Brush.verticalGradient(
         colors = listOf(
             Color(0xFF4F46E5),
@@ -155,7 +164,10 @@ fun LoginScreen(navController: NavController,viewModel: AuthViewModel) {
 //                                        contentDescription = if (passwordVisible) "Hide password" else "Show password"
 //                                    )
                                 }
+
                             },
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                            ,
                             colors = OutlinedTextFieldDefaults.colors(
 
                                 // ✍️ Text color inside field
@@ -257,16 +269,15 @@ fun LoginScreen(navController: NavController,viewModel: AuthViewModel) {
                         onClick = {
 
 
-                            viewModel.login(
-                                email,
-                                password,
-                                context
-                            ) {
-                                navController.navigate(Screen.HomeScreen.route)   // ✅ success হলে যাবে
+
+
+                            if (email.isEmpty() || password.isEmpty()) {
+                                error = "Please fill all fields $Status"
+                            } else {
+                                viewModel.login(email, password, context) {
+                                    navController.navigate(Screen.HomeScreen.route)
+                                }
                             }
-
-
-
 
                         },
                         modifier = Modifier
@@ -312,10 +323,11 @@ fun LoginScreen(navController: NavController,viewModel: AuthViewModel) {
         }
     }
 }
-//
-//@Preview(showSystemUi = true)
-//@Composable
-//fun loginUI() {
-//    val navController = rememberNavController()
-//    LoginScreen(navController)
-//}
+
+@Preview(showSystemUi = true)
+@Composable
+fun loginUI() {
+    val navController = rememberNavController()
+    val viewModel= AuthViewModel()
+    LoginScreen(navController,viewModel)
+}

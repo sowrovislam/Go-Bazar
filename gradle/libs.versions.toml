@@ -12,6 +12,7 @@ navigationCompose = "2.9.7"
 retrofit_v="2.9.0"
 converter_v="2.9.0"
 okhttp="4.12.0"
+animationCoreLint = "1.10.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +37,7 @@ androidx-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", versi
 androidx-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converter_v" }
 
 androidx-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+androidx-compose-animation-core-lint = { group = "androidx.compose.animation", name = "animation-core-lint", version.ref = "animationCoreLint" }
 
 
 
